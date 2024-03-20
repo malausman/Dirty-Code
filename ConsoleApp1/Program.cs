@@ -8,17 +8,17 @@ namespace BadCodeExample
         {
         // hard coded connection string
             private static string str = "Data Source=.;Initial Catalog=BadDatabase;Integrated Security=True";
-            private static SqlConnection connection;
+            private static SqlConnection con;
 
             public static void Main()
             {
                 try
                 {
-                    connection = new SqlConnection(connectionString);
-                    connection.Open();
+                    con = new SqlConnection(str);
+                    con.Open();
                 //The query is a simple SELECT *, which is generally considered bad practice
-                string query = "SELECT * FROM Users";
-                    SqlCommand command = new SqlCommand(query, connection);
+                string s = "SELECT * FROM Users";
+                    SqlCommand command = new SqlCommand(s, con);
                     SqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
