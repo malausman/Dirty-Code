@@ -7,7 +7,7 @@ namespace BadCodeExample
         public class BadAdoNetExample
         {
         // hard coded connection string
-            private static string connectionString = "Data Source=.;Initial Catalog=BadDatabase;Integrated Security=True";
+            private static string str = "Data Source=.;Initial Catalog=BadDatabase;Integrated Security=True";
             private static SqlConnection connection;
 
             public static void Main()
