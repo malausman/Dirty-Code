@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.Data.SqlClient;
 
@@ -16,7 +16,7 @@ namespace BadCodeExample
                 {
                     con = new SqlConnection(str);
                     con.Open();
-                //The query is a simple SELECT *, which is generally considered bad practice
+   
                 string s = "SELECT * FROM Users";
                     SqlCommand command = new SqlCommand(s, con);
                     SqlDataReader reader = command.ExecuteReader();
@@ -32,9 +32,9 @@ namespace BadCodeExample
                 }
                 finally
             {   //The SqlCommand and SqlDataReader objects are not disposed of properly.
-                if (connection.State != System.Data.ConnectionState.Closed)
+                if (con.State != System.Data.ConnectionState.Closed)
                     {
-                        connection.Close();
+                    con.Close();
                     //The connection object is not disposed of properly in the finally block.
                 }
                 //There's no error handling for the connection.Open() method, which could fail.
